@@ -1,0 +1,103 @@
+/*
+    * Project Name : 'Accordion'
+    * Built by : 'Gulshan Songara'
+*/
+
+/*--====== CSS Reset ======--*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e0e2fc;
+}
+
+.section {
+    min-height: 100vh;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.container {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.heading {
+    text-align: center;
+}
+
+.accordion {
+    max-width: 700px;
+    margin: 5rem auto;
+}
+
+.accordion_item {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.accordion_title,
+.accordion_content {
+    padding: 1rem 1.25rem;
+}
+
+.accordion_title {
+    background-color: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* when the accordion_title has 'active' class */
+.accordion_title.active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.accordion_title img {
+    transition: transform 0.3s ease-out;
+}
+
+.accordion_title.active img {
+    transform: rotate(180deg);
+}
+
+.accordion_content {
+    display: none;
+}
+
+.accordion_content p {
+    line-height: 1.4;
+    letter-spacing: 0.6px;
+}
+
+/* when the accordion_title has 'active' class then their adjacent sibling will become visible */
+.accordion_title.active + .accordion_content {
+    display: block;
+    animation: fadein 0.3s ease-out;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
